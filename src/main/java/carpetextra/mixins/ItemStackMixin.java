@@ -28,7 +28,7 @@ public abstract class ItemStackMixin
             if (item.getBlock() instanceof ShulkerBoxBlock &&
                 InventoryUtils.shulkerBoxHasItems((ItemStack) (Object) this) == false)
             {
-                cir.setReturnValue(64);
+                cir.setReturnValue(CarpetSettings.shulkerBoxStackSize);
             }
         }
     }
