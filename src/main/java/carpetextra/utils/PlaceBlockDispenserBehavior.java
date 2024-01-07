@@ -41,7 +41,7 @@ import net.minecraft.world.World;
 import java.util.Collection;
 
 public class PlaceBlockDispenserBehavior  extends ItemDispenserBehavior {
-    private static PlaceBlockDispenserBehavior instance = new PlaceBlockDispenserBehavior();
+    private static final PlaceBlockDispenserBehavior instance = new PlaceBlockDispenserBehavior();
     public static PlaceBlockDispenserBehavior getInstance() {return instance;}
     @Override
     public ItemStack dispenseSilently(BlockPointer blockPointer, ItemStack itemStack) {
@@ -51,10 +51,10 @@ public class PlaceBlockDispenserBehavior  extends ItemDispenserBehavior {
         }
         Block block = ((BlockItem) item).getBlock();
 
-        Direction facing = blockPointer.getBlockState().get(DispenserBlock.FACING);
+        Direction facing = blockPointer.state().get(DispenserBlock.FACING);
         Direction.Axis axis = facing.getAxis();
-        World world = blockPointer.getWorld();
-        BlockPos pos = blockPointer.getPos();
+        World world = blockPointer.world();
+        BlockPos pos = blockPointer.pos();
 
         final Direction ffacing = facing;
 
